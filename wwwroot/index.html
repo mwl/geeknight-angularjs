@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="todo">
 <head>
     <title>AngularJS geeknight - Todo</title>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
@@ -22,8 +22,11 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <h1>AngularJS Todo lists</h1>
+    <div class="container" ng-controller="ListsCtrl">
+        <h1>My tasks</h1>
+        <ul>
+            <li ng-repeat="list in lists">{{list.name}}</li>
+        </ul>
     </div>
 </body>
 </html>

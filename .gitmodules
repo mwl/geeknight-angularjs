@@ -1,0 +1,3 @@
+[submodule "modules/riak"]
+	path = modules/riak
+	url = git@github.com:mwl/puppet-riak.git

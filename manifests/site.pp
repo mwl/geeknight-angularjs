@@ -16,4 +16,6 @@ node www {
     class {'riak':
         riakhost => $ipaddress_eth1,
     }
+    class {'lighttpd':
+    }
 }

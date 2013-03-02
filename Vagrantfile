@@ -13,6 +13,6 @@ Vagrant::Config.run do |config|
   config.vm.define :www do |config|
     config.vm.host_name = "www.mwl.dk"
     config.vm.network :hostonly, "192.168.33.10"
-    config.vm.share_folder "wwwroot", "/var/wwwroot", "wwwroot"
+    config.vm.share_folder "wwwroot", "/var/www", "wwwroot"
   end
 end

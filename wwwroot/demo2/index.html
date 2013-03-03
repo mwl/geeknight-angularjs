@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>AngularJS geeknight - Todo</title>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div class="container" ng-controller="DemoCtrl">
+        <h1>Demo 2</h1>
+        <div class="span6">
+            <input ng-model="filter.name" type="text"/>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th><a ng-click="predicate='number'; filter=''">#</a></th>
+                    <th><a ng-click="predicate='name'; filter=''">Name</a></th>
+                    <th><a ng-click="predicate='-speed'; filter=hasSpeed">Speed</a></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="corner in corners | filter:filter | orderBy:predicate">
+                    <td>{{corner.number}}</td>
+                    <td>{{corner.name}}</td>
+                    <td><span ng-show="corner.speed">{{corner.speed}}&nbsp;km/h</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

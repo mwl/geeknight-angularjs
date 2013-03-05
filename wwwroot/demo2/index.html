@@ -21,7 +21,8 @@
     <div class="container" ng-controller="DemoCtrl">
         <h1>Demo 2</h1>
         <div class="span6">
-            <input ng-model="filter.name" type="text"/>
+            <input ng-model="filter.name" type="text" placeholder="Search..."/>
+            <label class="checkbox"><input type="checkbox" ng-model="speedInMph"/>Show speed in mph</label>
 
             <table class="table">
                 <thead>
@@ -35,7 +36,7 @@
                 <tr ng-repeat="corner in corners | filter:filter | orderBy:predicate">
                     <td>{{corner.number}}</td>
                     <td>{{corner.name}}</td>
-                    <td><span ng-show="corner.speed">{{corner.speed}}&nbsp;km/h</span></td>
+                    <td><span ng-show="corner.speed">{{corner.speed | speed:speedInMph}}</span></td>
                 </tr>
                 </tbody>
             </table>

@@ -1,4 +1,14 @@
 var app = angular.module('Demo2', []);
+app.filter('speed', function() {
+    return function(speedInKph, showMph) {
+        if (showMph) {
+            return Math.round(speedInKph * 1.609344) + " mph"
+        }
+        else {
+            return speedInKph + " kph";
+        }
+    }
+});
 
 function DemoCtrl($scope) {
     $scope.corners = [

@@ -18,4 +18,7 @@ node www {
     }
     class {'lighttpd':
     }
+
+    class{'data':
+    }
 }

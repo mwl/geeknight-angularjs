@@ -1,0 +1,7 @@
+{
+    "year": 2012,
+    "grand_prix": [
+        { "circuit": "monaco", "name": "Monaco", "date": "2013-05-26" },
+        { "circuit": "spa_francorchamps", "name": "Spa Francorchamps", "date": "2013-08-25" }
+    ]
+}

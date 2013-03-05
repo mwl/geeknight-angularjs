@@ -1,4 +1,4 @@
-<h1>Formula 1 season {{year}} circuits</h1>
+<h1>Formula 1 season {{season.year}} circuits</h1>
 <ul>
-    <li ng-repeat="circuit in circuits"><a href="/{{year}}/circuits/{{circuit.handle}}">{{circuit.name}}</a></li>
+    <li ng-repeat="grandprix in season.grand_prix"><a href="#/circuits/{{grandprix.circuit}}">{{grandprix.name}}</a></li>
 </ul>

@@ -10,7 +10,7 @@ class data($riak_host = "localhost:8098") {
 
     exec {"put json":
         cwd => "/tmp/data/json",
-        command => "find * -type f -exec curl -XPUT -H'Content-Type: application/json' --data-binary @{} http://${riak_host}/riak/{} \\;",
-        require => [File["/tmp/data"], Package["curl"]]
+        command => "sleep 3; find * -type f -exec curl -XPUT -H'Content-Type: application/json' --data-binary @{} http://${riak_host}/riak/{} \\;",
+        require => [File["/tmp/data"], Package["curl"], Class["riak"]]
     }
 }

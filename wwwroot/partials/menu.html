@@ -1,0 +1,12 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" ng-href="/">Angular Geeknight</a>
+            <ul class="nav">
+                <li ng-repeat="item in items" ng-class="isActive(item.url)">
+                    <a ng-href="{{item.url}}">{{item.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

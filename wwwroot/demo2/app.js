@@ -1,3 +1,5 @@
+var app = angular.module('Demo2', []);
+
 function DemoCtrl($scope) {
     $scope.corners = [
         {name: "La source",        number:  1, speed:  65},

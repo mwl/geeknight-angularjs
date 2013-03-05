@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="Demo1">
 <head>
     <title>AngularJS geeknight - Todo</title>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
@@ -8,8 +8,15 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
+    <script src="/js/navigation.js"></script>
+    <style>
+            body {
+                padding-top: 60px;
+            }
+    </style>
 </head>
 <body>
+    <menu for="/demo1"></menu>
     <div class="container" ng-controller="DemoCtrl">
         <h1>Demo 1</h1>
         <label>Name:</label>

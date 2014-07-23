@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="Demo3">
+<head>
+    <title>AngularJS geeknight - Todo</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+    <script src="/js/navigation.js"></script>
+    <style>
+            body {
+                padding-top: 60px;
+            }
+    </style>
+</head>
+<body>
+    <menu for="/demo2"></menu>
+
+    <div class="container" ng-controller="DemoCtrl">
+        <h1>Demo 2</h1>
+
+        <div class="row">
+            <div class="span6">
+                <input ng-model="filter.name" type="text" placeholder="Search..."/>
+                <label class="checkbox"><input type="checkbox" ng-model="speedInMph"/>Show speed in mph</label>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th><a ng-click="predicate='number'; filter=''">#</a></th>
+                        <th><a ng-click="predicate='name'; filter=''">Name</a></th>
+                        <th><a ng-click="predicate='-speed'; filter=hasSpeed">Speed</a></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="corner in corners | filter:filter | orderBy:predicate">
+                        <td>{{corner.number}}</td>
+                        <td>{{corner.name}}</td>
+                        <td><span ng-show="corner.speed">{{corner.speed | speed:speedInMph}}</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="span6">
+                <form name="newCornerForm" class="form-horizontal">
+                    <div class="control-group" ng-class="{error: !newCornerForm.number.$valid}">
+                        <label class="control-label" for="number">Number</label>
+                        <div class="controls">
+                            <input id="number" name="number" type="number" ng-model="newcorner.number" min="1" required/>
+                            <span class="help-inline">
+                                <span ng-show="newCornerForm.number.$error.min">Number has to be greater than 1</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="control-group" ng-class="{error: !newCornerForm.name.$valid}">
+                        <label class="control-label" for="name">Name</label>
+                        <div class="controls">
+                            <input id="name" name="name" type="text" ng-model="newcorner.name" ng-minlength="3"/>
+                            <span class="help-inline">
+                                <span ng-show="newCornerForm.name.$error.minlength">Name is too short</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="control-group" ng-class="{error: !newCornerForm.speed.$valid}">
+                        <label class="control-label" for="speed">Speed</label>
+                        <div class="controls">
+                            <input name="speed" id="speed" type="number" ng-model="newcorner.speed" min="0" placeholder="KPH"/>
+                            <span class="help-inline">
+                                <span ng-show="newCornerForm.speed.$error.min">Reversing is not allowed</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary" ng-click="save()">Add corner</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

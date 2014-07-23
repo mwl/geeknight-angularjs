@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-Vagrant::Config.run do |config|
+Vagrant.configure("2") do |config|
   config.vm.box = "precise64"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
@@ -12,7 +12,7 @@ Vagrant::Config.run do |config|
 
   config.vm.define :www do |config|
     config.vm.host_name = "www.mwl.dk"
-    config.vm.network :hostonly, "192.168.33.10"
-    config.vm.share_folder "wwwroot", "/var/www", "wwwroot"
+    config.vm.network "private_network", ip: "192.168.33.10"
+    config.vm.synced_folder "wwwroot", "/var/www"
   end
 end

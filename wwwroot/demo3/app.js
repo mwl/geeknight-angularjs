@@ -1,4 +1,4 @@
-var app = angular.module('Demo3', ['ngResource']);
+var app = angular.module('Demo3', ['ngResource', 'ngRoute']);
 app.config(function ($routeProvider, $locationProvider) {
     $routeProvider.
         when("/:year", {controller: SeasonCtrl, templateUrl: "/demo3/season.html"}).

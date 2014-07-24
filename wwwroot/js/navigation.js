@@ -3,7 +3,6 @@ app.directive('menu', function($location) {
         {name: "Demo 1", url: "/demo1"},
         {name: "Demo 2", url: "/demo2"},
         {name: "Demo 3", url: "/demo3"},
-        {name: "Demo 4", url: "/demo4"}
     ]
     return {
         templateUrl: '/partials/menu.html',
@@ -11,7 +10,7 @@ app.directive('menu', function($location) {
         replace: true,
         scope: {for: '@for' },
         link: function(scope, element, attributes) {
-            scope.isActive = function(url) {
+            scope.isActive = function (url) {
                 var path = scope.for;
                 var isSamePath = path === url;
                 var isSubPath = path.indexOf(url + '/') == 0;
@@ -19,7 +18,7 @@ app.directive('menu', function($location) {
                     return 'active';
                 }
                 return '';
-            }
+            };
             scope.currentUrl = $location.path();
             scope.items = menuItems;
         }

@@ -1,8 +1,8 @@
-var app = angular.module('Demo4', ['ngResource', 'ngRoute']);
+var app = angular.module('Demo3', ['ngResource', 'ngRoute']);
 app.config(function ($routeProvider, $locationProvider) {
     $routeProvider.
-        when("/:year", {controller: SeasonCtrl, templateUrl: "/demo4/season.html"}).
-        when("/circuits/:name", {controller: CircuitCtrl, templateUrl: "/demo4/circuit.html"}).
+        when("/:year", {controller: SeasonCtrl, templateUrl: "/demo3/season.html"}).
+        when("/circuits/:name", {controller: CircuitCtrl, templateUrl: "/demo3/circuit.html"}).
         otherwise({redirectTo: '/2013'});
 });
 app.factory('Season', function ($resource) {

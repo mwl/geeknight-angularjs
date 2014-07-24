@@ -1,5 +1,5 @@
 var app = angular.module('Demo3', ['ngResource', 'ngRoute']);
-app.config(function ($routeProvider, $locationProvider) {
+app.config(function ($routeProvider) {
     $routeProvider.
         when("/:year", {controller: SeasonCtrl, templateUrl: "/demo3/season.html"}).
         when("/circuits/:name", {controller: CircuitCtrl, templateUrl: "/demo3/circuit.html"}).
@@ -21,9 +21,9 @@ function CircuitCtrl($scope, $routeParams, Circuit) {
 
     $scope.circuit = Circuit.get({name: $routeParams.name});
 
-    $scope.hasSpeed = function(corner) {
+    $scope.hasSpeed = function (corner) {
         return corner.speed > 0;
-    }
+    };
 
     $scope.save = function() {
         $scope.circuit.$save();

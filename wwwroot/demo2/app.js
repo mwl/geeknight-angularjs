@@ -35,5 +35,15 @@ function DemoCtrl($scope) {
 
     $scope.hasSpeed = function(corner) {
         return corner.speed > 0;
+    };
+
+    $scope.save = function () {
+        if ($scope.newCornerForm.$valid) {
+            $scope.corners.push(_.clone($scope.newcorner));
+            $scope.newcorner = {};
     }
+        else {
+            alert("Form is not valid")
+        }
+    };
 }

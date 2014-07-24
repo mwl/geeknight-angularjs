@@ -6,10 +6,10 @@ app.config(function ($routeProvider) {
         otherwise({redirectTo: '/2013'});
 });
 app.factory('Season', function ($resource) {
-    return $resource("/buckets/seasons/keys/:year", {year: '@year'})
+    return $resource("/buckets/seasons/keys/:year")
 });
 app.factory('Circuit', function($resource) {
-    return $resource('/buckets/circuits/keys/:name', {name: '@id'})
+    return $resource('/buckets/circuits/keys/:id')
 });
 
 
@@ -19,7 +19,7 @@ function SeasonCtrl($scope, $routeParams, Season) {
 
 function CircuitCtrl($scope, $routeParams, Circuit) {
 
-    $scope.circuit = Circuit.get({name: $routeParams.name});
+    $scope.circuit = Circuit.get({id: $routeParams.name});
 
     $scope.hasSpeed = function (corner) {
         return corner.speed > 0;

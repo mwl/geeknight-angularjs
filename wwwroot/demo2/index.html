@@ -26,7 +26,7 @@
                 <input ng-model="filter.name" type="text" placeholder="Search..."/>
                 <label class="checkbox"><input type="checkbox" ng-model="speedInMph"/>Show speed in mph</label>
 
-                <table class="table">
+                <table class="table table-condensed">
                     <thead>
                     <tr>
                         <th><a ng-click="predicate='number'; filter=''">#</a></th>
@@ -44,7 +44,7 @@
                 </table>
             </div>
             <div class="span6">
-                <form name="newCornerForm" class="form-horizontal">
+                <form name="newCornerForm" class="form-horizontal" novalidate>
                     <div class="control-group" ng-class="{error: !newCornerForm.number.$valid}">
                         <label class="control-label" for="number">Number</label>
 
